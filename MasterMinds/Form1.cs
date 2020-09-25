@@ -17,23 +17,24 @@ namespace MasterMinds
         public Form1()
         {
             InitializeComponent();
-            
+            var colorSelectors = Controls.OfType<ColorSelector>().ToList(); ;
+            Color[] colors = new Color[] { Color.Red, Color.Green, Color.Blue };
+            colorSelectors.ForEach(colorSelector => colorSelector.Colors = colors);
+
+            guessButton.Enabled = false;
         }
         
         private void Form1_Load(object sender, EventArgs e)
         {
-            var colorSelectors = Controls.OfType<ColorSelector>();
-            Color[] colors = new Color[] { Color.Red, Color.Green, Color.Blue};
             
-
         }
 
-        private void colorSelector1_ColorSelected(object sender, EventArgs e)
+        private void colorSelector_ColorSelected(object sender, EventArgs e)
         {
             var selectorControls = Controls.OfType<ColorSelector>(); // grabs the collection of controls pertaining to the ColorSelector.
             //Check the collection if it's unique.
-            guessButton.Enabled = selectorControls.Select(d => d.SelectedColor)
-                                             .Where(d => d.HasValue)
+            guessButton.Enabled = selectorControls.Select(selectorControl => selectorControl.SelectedColor)
+                                             .Where(selectorContorl => !selectorContorl.IsEmpty)
                                              .Distinct()
                                              .Count() == selectorControls.Count();
         }
@@ -45,5 +46,6 @@ namespace MasterMinds
        
                                                                             
         }
+  
     }
 }

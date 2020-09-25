@@ -28,29 +28,21 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.colorSelector1 = new MasterMinds.Controls.ColorSelector();
-            this.colorSelector2 = new MasterMinds.Controls.ColorSelector();
-            this.colorSelector3 = new MasterMinds.Controls.ColorSelector();
             this.guessButton = new System.Windows.Forms.Button();
+            this.colorSelector3 = new MasterMinds.Controls.ColorSelector();
+            this.colorSelector2 = new MasterMinds.Controls.ColorSelector();
+            this.colorSelector1 = new MasterMinds.Controls.ColorSelector();
             this.SuspendLayout();
             // 
-            // colorSelector1
+            // guessButton
             // 
-            this.colorSelector1.Colors = new System.Drawing.Color[0];
-            this.colorSelector1.Location = new System.Drawing.Point(13, 13);
-            this.colorSelector1.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
-            this.colorSelector1.Name = "colorSelector1";
-            this.colorSelector1.Size = new System.Drawing.Size(252, 352);
-            this.colorSelector1.TabIndex = 0;
-            // 
-            // colorSelector2
-            // 
-            this.colorSelector2.Colors = new System.Drawing.Color[0];
-            this.colorSelector2.Location = new System.Drawing.Point(277, 15);
-            this.colorSelector2.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
-            this.colorSelector2.Name = "colorSelector2";
-            this.colorSelector2.Size = new System.Drawing.Size(252, 352);
-            this.colorSelector2.TabIndex = 1;
+            this.guessButton.Location = new System.Drawing.Point(800, 14);
+            this.guessButton.Name = "guessButton";
+            this.guessButton.Size = new System.Drawing.Size(335, 352);
+            this.guessButton.TabIndex = 3;
+            this.guessButton.Text = "Guess";
+            this.guessButton.UseVisualStyleBackColor = true;
+            this.guessButton.Click += new System.EventHandler(this.guessButton_Click);
             // 
             // colorSelector3
             // 
@@ -60,16 +52,27 @@
             this.colorSelector3.Name = "colorSelector3";
             this.colorSelector3.Size = new System.Drawing.Size(252, 352);
             this.colorSelector3.TabIndex = 2;
+            this.colorSelector3.ColorSelected += new System.EventHandler(this.colorSelector_ColorSelected);
             // 
-            // guessButton
+            // colorSelector2
             // 
-            this.guessButton.Location = new System.Drawing.Point(802, 13);
-            this.guessButton.Name = "guessButton";
-            this.guessButton.Size = new System.Drawing.Size(335, 352);
-            this.guessButton.TabIndex = 3;
-            this.guessButton.Text = "Guess";
-            this.guessButton.UseVisualStyleBackColor = true;
-            this.guessButton.Click += new System.EventHandler(this.guessButton_Click);
+            this.colorSelector2.Colors = new System.Drawing.Color[0];
+            this.colorSelector2.Location = new System.Drawing.Point(277, 15);
+            this.colorSelector2.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.colorSelector2.Name = "colorSelector2";
+            this.colorSelector2.Size = new System.Drawing.Size(252, 352);
+            this.colorSelector2.TabIndex = 1;
+            this.colorSelector2.ColorSelected += new System.EventHandler(this.colorSelector_ColorSelected);
+            // 
+            // colorSelector1
+            // 
+            this.colorSelector1.Colors = new System.Drawing.Color[0];
+            this.colorSelector1.Location = new System.Drawing.Point(13, 13);
+            this.colorSelector1.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.colorSelector1.Name = "colorSelector1";
+            this.colorSelector1.Size = new System.Drawing.Size(252, 352);
+            this.colorSelector1.TabIndex = 0;
+            this.colorSelector1.ColorSelected += new System.EventHandler(this.colorSelector_ColorSelected);
             // 
             // Form1
             // 

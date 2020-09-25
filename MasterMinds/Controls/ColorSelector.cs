@@ -7,16 +7,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Threading;
 
 namespace MasterMinds.Controls
 {
     public partial class ColorSelector : UserControl
     {
         public event EventHandler ColorSelected;
+        
         public Color[] Colors { get; set; }
-        public Color? SelectedColor
+               
+        public Color SelectedColor
         {
-            get => SelectedColor as Color?;
+            get => comboBox1.SelectedItem == null ? Color.Empty : (Color)comboBox1.SelectedItem;
         }
         public ColorSelector()
         {
@@ -32,7 +35,7 @@ namespace MasterMinds.Controls
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             panel1.BackColor = (Color)((sender as ComboBox).SelectedItem);
-            ColorSelected.Invoke(this, e);
+            ColorSelected?.Invoke(this, e);
         }
        
     }
