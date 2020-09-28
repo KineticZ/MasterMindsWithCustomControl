@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.panel = new System.Windows.Forms.Panel();
+            this.textBox = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // comboBox1
@@ -43,30 +43,30 @@
             this.comboBox1.TabIndex = 0;
             this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
-            // panel1
+            // panel
             // 
-            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel1.Location = new System.Drawing.Point(4, 32);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(119, 119);
-            this.panel1.TabIndex = 1;
+            this.panel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel.Location = new System.Drawing.Point(4, 32);
+            this.panel.Name = "panel";
+            this.panel.Size = new System.Drawing.Size(119, 119);
+            this.panel.TabIndex = 1;
             // 
-            // textBox1
+            // textBox
             // 
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox1.Location = new System.Drawing.Point(4, 158);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(119, 13);
-            this.textBox1.TabIndex = 2;
-            this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox.Location = new System.Drawing.Point(4, 158);
+            this.textBox.Name = "textBox";
+            this.textBox.ReadOnly = true;
+            this.textBox.Size = new System.Drawing.Size(119, 13);
+            this.textBox.TabIndex = 2;
+            this.textBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // ColorSelector
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.textBox);
+            this.Controls.Add(this.panel);
             this.Controls.Add(this.comboBox1);
             this.Name = "ColorSelector";
             this.Size = new System.Drawing.Size(126, 183);
@@ -79,7 +79,7 @@
         #endregion
 
         private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Panel panel;
+        private System.Windows.Forms.TextBox textBox;
     }
 }

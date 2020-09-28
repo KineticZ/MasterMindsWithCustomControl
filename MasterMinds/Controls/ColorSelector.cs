@@ -16,6 +16,19 @@ namespace MasterMinds.Controls
         public event EventHandler ColorSelected;
         
         public Color[] Colors { get; set; }
+
+        public string TextForTextBox
+        {
+            get
+            {
+                return textBox.Text;
+            }
+
+            set
+            {
+                textBox.Text = value;
+            }
+        }
                
         public Color SelectedColor
         {
@@ -24,7 +37,7 @@ namespace MasterMinds.Controls
         public ColorSelector()
         {
             InitializeComponent();
-            textBox1.Text = "Select Color";
+            textBox.Text = "Select Color";
 
             Colors = Array.Empty<Color>();
         }
@@ -34,7 +47,7 @@ namespace MasterMinds.Controls
         }
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            panel1.BackColor = (Color)((sender as ComboBox).SelectedItem);
+            panel.BackColor = (Color)((sender as ComboBox).SelectedItem);
             ColorSelected?.Invoke(this, e);
         }
        
