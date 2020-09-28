@@ -29,6 +29,11 @@ namespace MasterMinds.Controls
                 textBox.Text = value;
             }
         }
+
+        public void ResetPanel()
+        {
+            panel.BackColor = Color.White;
+        }
                
         public Color SelectedColor
         {

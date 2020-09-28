@@ -19,14 +19,7 @@ namespace MasterMinds
         public Form1()
         {
             InitializeComponent();
-            var colorSelectors = Controls.OfType<ColorSelector>().ToList(); ;
-            Color[] colors = new Color[] { Color.Red, Color.Green, Color.Blue, Color.Black };
-            colorSelectors.ForEach(colorSelector => colorSelector.Colors = colors);
-
-            guessButton.Enabled = false;
-
-            ColorsToGuess = new List<Color>();
-            ColorsToGuess = ShuffleColors(colors.ToList(), 3);
+            initGame();
         }
         private List<Color> ShuffleColors(List<Color> colors, int numberOfColorsToGuess)
         {
@@ -46,10 +39,19 @@ namespace MasterMinds
 
             return newListOfColors;
         }
-        private void Form1_Load(object sender, EventArgs e)
+        private void initGame()
         {
-            
+            var colorSelectors = Controls.OfType<ColorSelector>().ToList(); ;
+            Color[] colors = new Color[] { Color.Red, Color.Green, Color.Blue, Color.Black };
+            colorSelectors.ForEach(colorSelector => colorSelector.Colors = colors);
+
+            guessButton.Enabled = false;
+
+            ColorsToGuess = new List<Color>();
+            ColorsToGuess = ShuffleColors(colors.ToList(), 3);
         }
+        private void Form1_Load(object sender, EventArgs e)
+            => Text = "Master Minds Color Game";
 
         private void colorSelector_ColorSelected(object sender, EventArgs e)
         {
@@ -66,7 +68,8 @@ namespace MasterMinds
             var selectorControls = Controls.OfType<ColorSelector>().ToList();
             selectorControls.Reverse();
             var selectedColors = selectorControls.Select(selectorControl => selectorControl.SelectedColor).ToList();
-            selectedColors.Reverse(); 
+            int numberOfCorrectBoxes = 0;
+
             //check if the color exist and if the color is in the correct spot
             for (int i = 0; i < ColorsToGuess.Count; i++)
             {
@@ -74,6 +77,7 @@ namespace MasterMinds
                 if (doesExist && ColorsToGuess[i] == selectedColors[i])
                 {
                     selectorControls[i].TextForTextBox = "Correct";
+                    numberOfCorrectBoxes++;
                 }
                 else if (doesExist)
                 {
@@ -84,9 +88,23 @@ namespace MasterMinds
                     selectorControls[i].TextForTextBox = "Incorrect Color";
                 }
             }
+
+            //Change Text if all 3 are correct.
+            if (numberOfCorrectBoxes == selectorControls.Count)
+            {
+                timer.Enabled = true;            
+            }
         }
         private void guessButton_Click(object sender, EventArgs e)
             => checkSelectedColors();
-  
+
+        private void timer_Tick(object sender, EventArgs e)
+        {
+            initGame();
+            var selectorControls = Controls.OfType<ColorSelector>().ToList();
+            selectorControls.ForEach(selectorControl => selectorControl.TextForTextBox = "Select Color");
+            selectorControls.ForEach(selectorControl => selectorControl.ResetPanel());
+            timer.Enabled = false;
+        }
     }
 }

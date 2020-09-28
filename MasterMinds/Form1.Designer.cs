@@ -28,7 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.guessButton = new System.Windows.Forms.Button();
+            this.timer = new System.Windows.Forms.Timer(this.components);
             this.colorSelector3 = new MasterMinds.Controls.ColorSelector();
             this.colorSelector2 = new MasterMinds.Controls.ColorSelector();
             this.colorSelector1 = new MasterMinds.Controls.ColorSelector();
@@ -37,13 +39,18 @@
             // guessButton
             // 
             this.guessButton.Location = new System.Drawing.Point(400, 7);
-            this.guessButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.guessButton.Margin = new System.Windows.Forms.Padding(2);
             this.guessButton.Name = "guessButton";
             this.guessButton.Size = new System.Drawing.Size(168, 183);
             this.guessButton.TabIndex = 3;
             this.guessButton.Text = "Guess";
             this.guessButton.UseVisualStyleBackColor = true;
             this.guessButton.Click += new System.EventHandler(this.guessButton_Click);
+            // 
+            // timer
+            // 
+            this.timer.Interval = 500;
+            this.timer.Tick += new System.EventHandler(this.timer_Tick);
             // 
             // colorSelector3
             // 
@@ -79,7 +86,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(574, 322);
+            this.ClientSize = new System.Drawing.Size(574, 202);
             this.Controls.Add(this.guessButton);
             this.Controls.Add(this.colorSelector3);
             this.Controls.Add(this.colorSelector2);
@@ -97,6 +104,7 @@
         private Controls.ColorSelector colorSelector2;
         private Controls.ColorSelector colorSelector3;
         private System.Windows.Forms.Button guessButton;
+        private System.Windows.Forms.Timer timer;
     }
 }
 
